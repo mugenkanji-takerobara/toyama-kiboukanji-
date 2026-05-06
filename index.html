@@ -2211,132 +2211,18 @@ in the heart of every traveler
 Fin`,
   },
 ];
+<script>
+  let currentLang = "jp";
 
-let currentChapter = 0;
-
-function showStory(chapter){
-  currentChapter = chapter;
-  const data = STORY[chapter];
-  document.getElementById("storyTitle").textContent = data.title;
-  document.getElementById("storyTextJP").textContent = data.jp;
-  document.getElementById("storyTextEN").textContent = data.en;
-}
-
-// 日本語ボタン切り替え
-document.getElementById("btnJP").addEventListener("click", ()=>{
-  document.getElementById("storyTextJP").classList.remove("hidden"); // blockの代わり
-  document.getElementById("storyTextEN").classList.add("hidden");    // noneの代わり
-  document.getElementById("btnJP").classList.add("active");
-  document.getElementById("btnEN").classList.remove("active");
-});
-
-// 英語ボタン切り替え
-document.getElementById("btnEN").addEventListener("click", ()=>{
-  document.getElementById("storyTextJP").classList.add("hidden");    // noneの代わり
-  document.getElementById("storyTextEN").classList.remove("hidden"); // blockの代わり
-  document.getElementById("btnEN").classList.add("active");
-  document.getElementById("btnJP").classList.remove("active");
-});
-
-// 次へボタン
-document.getElementById("nextBtn").addEventListener("click", ()=>{
-  if(currentChapter < STORY.length - 1){
-    showStory(currentChapter + 1);
-  }
-});
-
-// 前へボタン
-document.getElementById("prevBtn").addEventListener("click", ()=>{
-  if(currentChapter > 0){
-    showStory(currentChapter - 1);
-  }
-});  
-/* 日本語⇔英語切替 */
-let currentLang = "jp";
-
-document.getElementById("btnLang").addEventListener("click", () => {
-
-  if (currentLang === "jp") {
-
-    // 英語タイトル（横書き）
-    const t = document.getElementById("titleVertical");
-    t.style.writingMode = "horizontal-tb";
-    t.style.fontSize = "36px";
-    t.style.letterSpacing = "0px";
-    t.textContent = "KIBOUKANJI — Where Every Character Carries Hope";
-
-    // 英語サブタイトル
-    document.getElementById("subtitle").innerHTML =
-      "Infinite Stories of Hope Written in Every Character";
-
-    currentLang = "en";
-
-  } else {
-
-    // 日本語タイトル（縦書き）
-    const t = document.getElementById("titleVertical");
-    t.style.writingMode = "vertical-rl";
-    t.style.fontSize = "56px";
-    t.style.letterSpacing = "6px";
-    t.textContent = "きぼうかんじ";
-
-    // 日本語サブタイトル（2行）
-    document.getElementById("subtitle").innerHTML = `
-      <div class="sub-line">とやまの無限漢字</div>
-      <div class="sub-line">～立山連峰から日本海まで希望の数え唄～</div>
-    `;
-
-    currentLang = "jp";
-  }
-});
-/* 日本語⇔英語切替 */
-let currentLang = "jp";
-
-document.getElementById("btnLang").addEventListener("click", () => {
-
-  if (currentLang === "jp") {
-
-    // 英語タイトル（横書き）
-    const t = document.getElementById("titleVertical");
-    t.style.writingMode = "horizontal-tb";
-    t.style.fontSize = "36px";
-    t.style.letterSpacing = "0px";
-    t.textContent = "KIBOUKANJI — Where Every Character Carries Hope";
-
-    // 英語サブタイトル
-    document.getElementById("subtitle").innerHTML =
-      "Infinite Stories of Hope Written in Every Character";
-
-    // ボタン3つ
-    document.getElementById("btnStartGame").textContent = "Start Game";
-    document.getElementById("btnHowTo").textContent = "How to Play";
-    document.getElementById("toyamaBtn").textContent = "Toyama";
-
-    currentLang = "en";
-
-  } else {
-
-    // 日本語タイトル（縦書き）
-    const t = document.getElementById("titleVertical");
-    t.style.writingMode = "vertical-rl";
-    t.style.fontSize = "56px";
-    t.style.letterSpacing = "6px";
-    t.textContent = "きぼうかんじ";
-
-    // 日本語サブタイトル（2行）
-    document.getElementById("subtitle").innerHTML = `
-      <div class="sub-line">とやまの無限漢字</div>
-      <div class="sub-line">～立山連峰から日本海まで希望の数え唄～</div>
-    `;
-
-    // ボタン3つ
-    document.getElementById("btnStartGame").textContent = "ゲームスタート";
-    document.getElementById("btnHowTo").textContent = "使いかた";
-    document.getElementById("toyamaBtn").textContent = "とやま";
-
-    currentLang = "jp";
-  }
-});
+  document.getElementById("lang-switch").addEventListener("click", () => {
+    if (currentLang === "jp") {
+      document.getElementById("lang-switch").textContent = "English / 日本語";
+      currentLang = "en";
+    } else {
+      document.getElementById("lang-switch").textContent = "日本語 / English";
+      currentLang = "jp";
+    }
+  });
 </script>
 <!-- 説明書モーダル -->
 <div id="manualOverlay" class="overlay hidden">
