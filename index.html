@@ -17,15 +17,15 @@
 }
   /* 右下に4つのボタンをまとめて配置 */
   #menu-buttons {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column; /* 縦並び */
-    gap: 6px;
-    z-index: 20;
-  }
-
+  position: absolute;
+  bottom: 10px;   /* 画面の一番下から10px */
+  right: 10px;    /* 画面の右から10px */
+  width: 25%;     /* 画面幅の1/4以下にする */
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  gap: 6px;       /* ボタンの間隔 */
+  z-index: 20;    /* 背景より前に出す */
+}
   /* ボタンの見た目（小さめ） */
   #menu-buttons button {
     font-size: 0.8rem;
