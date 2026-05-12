@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showScreen("title-screen");
 
-  document.getElementById("btnStartGame").addEventListener("click", () => {
+  document.getElementById("btn-start").addEventListener("click", () => {
     showScreen("gameScreen");
   });
 
@@ -417,13 +417,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnLang").addEventListener("click", () => {
 
     if (currentLang === "jp") {
-      document.getElementById("btnStartGame").textContent = "Start Game";
+      document.getElementById("btn-start").textContent = "Start Game";
       document.getElementById("btnHowTo").textContent = "How to Play";
       document.getElementById("toyamaBtn").textContent = "Toyama";
       currentLang = "en";
 
     } else {
-      document.getElementById("btnStartGame").textContent = "ゲームスタート";
+      document.getElementById("btn-start").textContent = "ゲームスタート";
       document.getElementById("btnHowTo").textContent = "使い方";
       document.getElementById("toyamaBtn").textContent = "とやま";
       currentLang = "jp";
@@ -442,7 +442,7 @@ document.getElementById("btnLang").addEventListener("click", () => {
     document.getElementById("subtitle").textContent =
       "Infinite Stories of Hope Written in Every Character";
 
-    document.getElementById("btnStartGame").textContent = "Start Game";
+    document.getElementById("btn-start").textContent = "Start Game";
     document.getElementById("btnHowTo").textContent = "How to Play";
     document.getElementById("toyamaBtn").textContent = "Toyama";
 
@@ -456,7 +456,7 @@ document.getElementById("btnLang").addEventListener("click", () => {
     document.getElementById("subtitle").textContent =
       "とやまの無限漢字 〜立山連峰から日本海まで希望の数え唄〜";
 
-    document.getElementById("btnStartGame").textContent = "ゲームスタート";
+    document.getElementById("btn-start").textContent = "ゲームスタート";
     document.getElementById("btnHowTo").textContent = "使い方";
     document.getElementById("toyamaBtn").textContent = "とやま";
 
@@ -476,7 +476,7 @@ document.getElementById("btnLang").addEventListener("click", () => {
     document.getElementById("subtitle").textContent =
       "Infinite Stories of Hope Written in Every Character";
 
-    document.getElementById("btnStartGame").textContent = "Start Game";
+    document.getElementById("btn-start").textContent = "Start Game";
     document.getElementById("btnHowTo").textContent = "How to Play";
     document.getElementById("toyamaBtn").textContent = "Toyama";
 
@@ -490,7 +490,7 @@ document.getElementById("btnLang").addEventListener("click", () => {
     document.getElementById("subtitle").textContent =
       "とやまの無限漢字 〜立山連峰から日本海まで、希望の数え唄〜";
 
-    document.getElementById("btnStartGame").textContent = "ゲームスタート";
+    document.getElementById("btn-start").textContent = "ゲームスタート";
     document.getElementById("btnHowTo").textContent = "使い方";
     document.getElementById("toyamaBtn").textContent = "とやま";
 
@@ -1355,7 +1355,7 @@ const gameScreen  = document.getElementById("gameScreen");
 const toyamaScreen = document.getElementById("toyamaScreen");
 const storyScreen = document.getElementById("storyScreen");
 
-document.getElementById("btnStartGame").addEventListener("click", ()=>{
+document.getElementById("btn-start").addEventListener("click", ()=>{
   title-screen.style.display = "none";
   gameScreen.style.display = "block";
 });
