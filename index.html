@@ -290,19 +290,15 @@
 <script>
 function showScreen(id){
   const screens = [
-    const screens = [
-  "title-screen",
-  "gameScreen",
-  "howtoScreen",
-  "toyamaScreen",
-  "manualOverlay",
-  "tateyamaDetailScreen",
-  "cityHallDetailScreen",
-  "amaharashiDetailScreen",
-  "storyScreen"
-];
-    "manualOverlay","tateyamaDetailScreen","cityHallDetailScreen",
-    "amaharashiDetailScreen"
+    "title-screen",
+    "gameScreen",
+    "howtoScreen",
+    "toyamaScreen",
+    "manualOverlay",
+    "tateyamaDetailScreen",
+    "cityHallDetailScreen",
+    "amaharashiDetailScreen",
+    "storyScreen"
   ];
 
   screens.forEach(s => {
@@ -313,6 +309,7 @@ function showScreen(id){
   const target = document.getElementById(id);
   if (target) target.style.display = "flex";
 }
+
 function showBonusDialog(message, callback) {
   const dialog = document.getElementById("bonusDialog");
   const text = document.getElementById("bonusDialogText");
