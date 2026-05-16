@@ -472,23 +472,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("backToTitle").addEventListener("click", () => {
-    showScreen("title-screen");
-  });
-
-  /* ★ 言語切替（2個目のscriptの中身） ★ */
-  let currentLang = "jp";
-
-  document.getElementById("lang-switch").addEventListener("click", () => {
-    if (currentLang === "jp") {
-      document.getElementById("lang-switch").textContent = "English / 日本語";
-      currentLang = "en";
-    } else {
-      document.getElementById("lang-switch").textContent = "日本語 / English";
-      currentLang = "jp";
-    }
-  });
-
-}); 
 /* =========================
    きぼうかんじ ゲーム本体
    ========================= */
