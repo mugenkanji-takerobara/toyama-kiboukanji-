@@ -409,27 +409,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });  /* ← DOMContentLoaded の終わり */
 
 </script>
-
-function showScreen(id){
-  const screens = [
-    "title-screen",
-    "gameScreen",
-    "toyamaScreen",
-    "manualOverlay",
-    "tateyamaDetailScreen",
-    "cityHallDetailScreen",
-    "amaharashiDetailScreen",
-    "storyScreen"
-  ];
-
-  screens.forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = "none";
-  });
-
-  const target = document.getElementById(id);
-  if (target) target.style.display = "flex";
-}
+<div id="manualOverlay" class="hidden">…</div>
+<div id="storyScreen" class="hidden">…</div>
+<div id="amaharashiDetailScreen" class="hidden">…</div>
+<div id="cityHallDetailScreen" class="hidden">…</div>
 
 document.addEventListener("DOMContentLoaded", () => {
   showScreen("title-screen");
