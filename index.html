@@ -1577,7 +1577,37 @@ Fin`,
   },
 ];
 </script>
-<div id="storyScreen" class="hidden">…</div>
+<div id="storyScreen" class="hidden">
+  <div id="storyScreen" class="hidden">
+  <div class="story-inner">
+
+    <!-- ★ここが言語切り替えボタン（btnJP / btnEN） -->
+    <div class="lang-buttons">
+      <button id="btnJP">日本語</button>
+      <button id="btnEN">English</button>
+    </div>
+
+    <h2 id="storyTitle"></h2>
+
+    <!-- ★ストーリー本文（日本語 / 英語） -->
+    <div id="storyTextJP" class="story-text"></div>
+    <div id="storyTextEN" class="story-text" style="display:none;"></div>
+
+    <!-- ★前へ / 次へ -->
+    <div class="story-nav">
+      <button id="prevBtn">もどる</button>
+      <button id="nextBtn">つぎへ</button>
+    </div>
+
+    <!-- ★タイトルへ戻る -->
+    <div class="back-title">
+      <button id="backToTitle">メインにもどる</button>
+    </div>
+
+  </div>
+</div>
+
+</div>
 <div id="amaharashiDetailScreen" class="hidden">…</div>
 <div id="cityHallDetailScreen" class="hidden">…</div>
 
