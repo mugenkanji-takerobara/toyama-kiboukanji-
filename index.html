@@ -1198,6 +1198,21 @@ const manualOverlay   = document.getElementById("manualOverlay");
 const btnJP           = document.getElementById("btnJP");
 const btnEN           = document.getElementById("btnEN");
 const gameControlButtons = document.getElementById("gameControlButtons"); 
+const backFromAmaharashi = document.getElementById("backFromAmaharashi");
+const backFromCityHall = document.getElementById("backFromCityHall");
+const backFromTateyama = document.getElementById("backFromTateyama");
+
+backFromAmaharashi.addEventListener("click", () => {
+  showScreen("toyamaScreen");
+});
+
+backFromCityHall.addEventListener("click", () => {
+  showScreen("toyamaScreen");
+});
+
+backFromTateyama.addEventListener("click", () => {
+  showScreen("toyamaScreen");
+});
   
 window.addEventListener("resize",resizeCanvas);
 resizeCanvas();
