@@ -1266,33 +1266,7 @@ document.getElementById("btn-toyama").addEventListener("click", ()=>{
   titleScreen.style.display = "none";
   toyamaScreen.style.display = "block";
 });
-/* =========================
-   とやま画面 → 詳細・物語
-   ========================= */
-document.getElementById("backFromToyama").addEventListener("click", ()=>{
-  toyamaScreen.style.display = "none";
-  titleScreen.style.display = "flex";
-});
 
-document.getElementById("tateyamaMuseumBtn").addEventListener("click", ()=>{
-  toyamaScreen.style.display = "none";
-  document.getElementById("tateyamaDetailScreen").style.display = "block";
-});
-
-document.getElementById("cityHallBtn").addEventListener("click", ()=>{
-  toyamaScreen.style.display = "none";
-  document.getElementById("cityHallDetailScreen").style.display = "block";
-});
-
-document.getElementById("backFromTateyama").addEventListener("click", ()=>{
-  document.getElementById("tateyamaDetailScreen").style.display = "none";
-  toyamaScreen.style.display = "block";
-});
-
-document.getElementById("backFromCityHall").addEventListener("click", ()=>{
-  document.getElementById("cityHallDetailScreen").style.display = "none";
-  toyamaScreen.style.display = "block";
-});
 /* =========================
    物語データ
    ========================= */
