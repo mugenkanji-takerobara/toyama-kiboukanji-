@@ -4,26 +4,33 @@
 <style>
 /* タイトル画面（背景＋右下4ボタンだけ） */
 #title-screen {
+  position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+#title-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: url("title-kiboukanji.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
-  background-color: black;
-  position: relative;
-  overflow: hidden;
-  
-  display: flex; 
+  z-index: 0;
+  pointer-events: none;
 }
+
 .menu-buttons {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 24%;  
+  width: 24%;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  z-index: 10;
   pointer-events: auto;
 }
 
