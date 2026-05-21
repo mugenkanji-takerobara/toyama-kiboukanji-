@@ -1217,23 +1217,6 @@ backFromTateyama.addEventListener("click", () => {
 window.addEventListener("resize",resizeCanvas);
 resizeCanvas();
 
-// 一時停止ボタン
-pauseBtn.addEventListener("click", ()=>{
-  if(!started || gameOver) return;
-  isPaused = !isPaused;
-  pauseBtn.textContent = isPaused ? '再開 ▶' : '一時停止 ||';
-});
-
-// メインボタン
-mainBtn.addEventListener("click", () => {
-  stopAllBGM();
-  started = false;
-  isPaused = false;
-  gameOver = false;
-  document.getElementById("gameScreen").style.display = "none";
-  showScreen("title-screen");
-});
-
 // 説明書の開閉
 manualCloseBtn.addEventListener("click", ()=>{
   manualOverlay.classList.add("hidden");
