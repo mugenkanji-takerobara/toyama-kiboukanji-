@@ -1238,6 +1238,7 @@ function loop(timestamp){
       fastDrop = false;
     }
   }
+}  // ← ★これが必要だった！
 // 画面スケール調整
 function resizeCanvas(){
   const scale = Math.min(window.innerWidth/360, window.innerHeight/720);
