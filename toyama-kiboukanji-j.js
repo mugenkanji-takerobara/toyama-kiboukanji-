@@ -178,6 +178,62 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setInterval(updateHUD, 100);
+　　    // ======== ボーナス処理 ========
+    let combo = 0;
+    let lastHitTime = 0;
+
+    function addScore(base) {
+        const now = Date.now();
+
+        // 連続ヒット判定（1秒以内）
+        if (now - lastHitTime < 1000) {
+            combo++;
+        } else {
+            combo = 1;
+        }
+
+        lastHitTime = now;
+
+        const bonus = base * combo;
+        score += bonus;
+
+        showComboEffect(combo, bonus);
+    }
+
+    // ======== コンボエフェクト ========
+    function showComboEffect(combo, bonus) {
+        const effect = document.createElement("div");
+        effect.className = "combo-effect";
+        effect.textContent = combo + " Combo! +" + bonus;
+
+        document.body.appendChild(effect);
+
+        setTimeout(() => {
+            effect.remove();
+        }, 800);
+    }
+
+    // ======== 漢字クリック時の処理を上書き ========
+    canvas.addEventListener("click", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        for (let i = 0; i < fallingKanji.length; i++) {
+            const k = fallingKanji[i];
+
+            if (
+                x >= k.x - 10 &&
+                x <= k.x + 50 &&
+                y >= k.y - 50 &&
+                y <= k.y + 10
+            ) {
+                addScore(10);
+                fallingKanji.splice(i, 1);
+                break;
+            }
+        }
+    });
 
 
 
