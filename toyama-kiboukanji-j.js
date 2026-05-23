@@ -235,5 +235,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+　　    // ======== ストーリーデータ ========
+    const storyPages = [
+        { title: "海のほとりにひらく景色", text: "海辺に広がる静かな景色が、心を落ち着かせる。" },
+        { title: "風が運ぶ記憶", text: "風がそっと運んでくるのは、遠い日の記憶。" },
+        { title: "光の道しるべ", text: "光が差し込むその先に、新しい物語が待っている。" }
+    ];
+
+    function loadStoryPage(index) {
+        if (index < 0) index = 0;
+        if (index >= storyPages.length) index = storyPages.length - 1;
+
+        currentStoryPage = index;
+
+        document.getElementById("story-title").textContent = storyPages[index].title;
+        document.getElementById("story-text").textContent = storyPages[index].text;
+    }
+
+    // ======== 説明書データ ========
+    const manualPages = [
+        { title: "遊び方", text: "落ちてくる漢字をタップしてスコアを稼ごう。" },
+        { title: "ボーナス", text: "連続でタップするとコンボボーナスが入る。" },
+        { title: "時間制限", text: "60秒以内にできるだけ多くの漢字をタップしよう。" }
+    ];
+
+    function loadManualPage(index) {
+        if (index < 0) index = 0;
+        if (index >= manualPages.length) index = manualPages.length - 1;
+
+        currentManualPage = index;
+
+        document.getElementById("manual-title").textContent = manualPages[index].title;
+        document.getElementById("manual-text").textContent = manualPages[index].text;
+    }
+
+    // ======== タイトルへ戻る ========
+    document.getElementById("back-to-title").addEventListener("click", () => {
+        showScreen("title-screen");
+    });
+
+}); // DOMContentLoaded 終了
 
 
