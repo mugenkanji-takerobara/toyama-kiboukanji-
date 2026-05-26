@@ -1291,7 +1291,7 @@ const backFromCityHall   = document.getElementById("backFromCityHall");
 const backFromTateyama   = document.getElementById("backFromTateyama");
 const backFromToyama     = document.getElementById("backFromToyama");    
 const titleScreen   = document.getElementById("title-screen");
-const gameScreen    = document.getElementById("gameScreen");
+const gameScreen = document.getElementById("game-screen");
 const toyamaScreen  = document.getElementById("toyamaScreen");
 const storyScreen   = document.getElementById("storyScreen");
 
