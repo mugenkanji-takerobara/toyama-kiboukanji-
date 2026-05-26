@@ -472,14 +472,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 function showScreen(id){
   const screens = [
-  "gameScreen",
-  "toyamaScreen",
-  "manualOverlay",
-  "tateyamaDetailScreen",
-  "cityHallDetailScreen",
-  "amaharashiDetailScreen",
-  "storyScreen"
-];
+    "title-screen",
+    "game-screen",
+    "story-screen",
+    "manual-screen",
+    "toyamaScreen",
+    "tateyamaDetailScreen",
+    "cityHallDetailScreen",
+    "amaharashiDetailScreen"
+  ];
+
+  screens.forEach(s => {
+    const el = document.getElementById(s);
+    if (el) el.style.display = "none";
+  });
+
+  const target = document.getElementById(id);
+  if (target) target.style.display = "flex";
+}
+
 
   screens.forEach(s => {
     const el = document.getElementById(s);
