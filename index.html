@@ -146,55 +146,6 @@
   display: none;
 }
 
-<div id="bonusDialog" style="display:none;">
-  <div class="bonus-dialog-inner">
-    <div class="bonus-dialog-title" id="bonusDialogTitle">ボーナス</div>
-    <div class="bonus-dialog-text" id="bonusDialogText">
-      この二つを入れ替えます
-    </div>
-    <div class="bonus-dialog-buttons">
-      <button id="bonusOkBtn">入れ替える</button>
-      <button id="bonusCancelBtn">やめる</button>
-    </div>
-  </div>
-</div>
-<div id="title-screen" class="screen">
-  <div class="menu-buttons">
-      <button id="btn-start" class="menu-btn">ゲーム<br>スタート</button>
-      <button id="btn-howto" class="menu-btn">使いかた</button>
-      <button id="btn-toyama" class="menu-btn">とやま</button>
-   </div>
-</div>
-
-<!-- ゲーム画面 -->
-<div id="game-screen" class="hidden">
-  <div class="screen-inner">
-    <div id="wrap">
-
-      <canvas id="c" width="360" height="640"></canvas>
-
-      <div id="gameControlButtons">
-        <button id="pauseBtn">一時停止 ||</button>
-        <button id="mainBtn">メイン</button>
-      </div>
-
-      <div id="controls">
-        <button id="easyBtn" onclick="startGame('easy')">やさしい</button>
-        <button id="hardBtn" onclick="startGame('hard')">むずかしい</button>
-        <button id="resetBtn" onclick="resetRecords()">記録をリセット</button>
-        <button id="restartBtn" onclick="restartGame()" style="display:none;">もう一度</button>
-        <button id="manualBtn">操作方法</button>
-      </div>
-
-      <div id="info">
-        左右スワイプで移動、下スワイプで加速！<br>
-        縦か横に3つそろえると消えるよ。
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <html lang="ja">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -430,6 +381,54 @@ body {
 </style>
 </head>
 <body>
+<div id="bonusDialog" style="display:none;">
+  <div class="bonus-dialog-inner">
+    <div class="bonus-dialog-title" id="bonusDialogTitle">ボーナス</div>
+    <div class="bonus-dialog-text" id="bonusDialogText">
+      この二つを入れ替えます
+    </div>
+    <div class="bonus-dialog-buttons">
+      <button id="bonusOkBtn">入れ替える</button>
+      <button id="bonusCancelBtn">やめる</button>
+    </div>
+  </div>
+</div>
+<div id="title-screen" class="screen">
+  <div class="menu-buttons">
+      <button id="btn-start" class="menu-btn">ゲーム<br>スタート</button>
+      <button id="btn-howto" class="menu-btn">使いかた</button>
+      <button id="btn-toyama" class="menu-btn">とやま</button>
+   </div>
+</div>
+
+<!-- ゲーム画面 -->
+<div id="game-screen" class="hidden">
+  <div class="screen-inner">
+    <div id="wrap">
+
+      <canvas id="c" width="360" height="640"></canvas>
+
+      <div id="gameControlButtons">
+        <button id="pauseBtn">一時停止 ||</button>
+        <button id="mainBtn">メイン</button>
+      </div>
+
+      <div id="controls">
+        <button id="easyBtn" onclick="startGame('easy')">やさしい</button>
+        <button id="hardBtn" onclick="startGame('hard')">むずかしい</button>
+        <button id="resetBtn" onclick="resetRecords()">記録をリセット</button>
+        <button id="restartBtn" onclick="restartGame()" style="display:none;">もう一度</button>
+        <button id="manualBtn">操作方法</button>
+      </div>
+
+      <div id="info">
+        左右スワイプで移動、下スワイプで加速！<br>
+        縦か横に3つそろえると消えるよ。
+      </div>
+
+    </div>
+  </div>
+</div>
 <div class="phone-container">
 
   <div id="toyamaScreen">
