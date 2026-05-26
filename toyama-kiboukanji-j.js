@@ -321,149 +321,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 }); // DOMContentLoaded 終了
 <script>
-<div id="toyamaScreen" class="hidden">
-  <div class="screen-inner">
-    <h1 class="toyama-title">とやま</h1>
-    <p class="toyama-sub">富山県内の観光地</p>
+// 画面を全部隠す
+function hideAllScreens() {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.add('hidden');
+  });
+}
 
-    <div class="spot-list">
-      <div class="spot">
-        <h3>魚津歴史民俗博物館<br><span class="en">Uozu History &amp; Folklore Museum</span></h3>
-        <p class="addr">富山県魚津市小川寺1070</p>
-      </div>
+// 指定した画面だけ表示
+function showScreen(id) {
+  hideAllScreens();
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove('hidden');
+  }
+}
 
-      <div class="spot special" id="amaharashiSpot">
-        <h3>雨晴海岸<br><span class="en">Amaharashi Coast</span></h3>
-            <p class="addr">富山県高岡市太田雨晴</p>
-      </div>
+// タイトル → ゲーム
+document.getElementById("start-button").addEventListener("click", () => {
+  showScreen("game-screen");
+});
 
-      <div class="spot">
-        <h3>八尾おわら資料館<br><span class="en">Yatsuo Owara Museum</span></h3>
-        <p class="addr">富山県富山市八尾町上新町289</p>
-      </div>
+// ゲーム → 説明書
+document.getElementById("manual-button").addEventListener("click", () => {
+  document.getElementById("manualOverlay").classList.remove("hidden");
+});
 
-      <div class="spot">
-        <h3>ほたるいかミュージアム<br><span class="en">Firefly Squid Museum</span></h3>
-        <p class="addr">富山県滑川市中川原410</p>
-      </div>
+// 説明書を閉じる
+document.getElementById("close-manual").addEventListener("click", () => {
+  document.getElementById("manualOverlay").classList.add("hidden");
+});
 
-      <div class="spot">
-        <h3>海王丸パーク<br><span class="en">Kaiwomaru Park</span></h3>
-        <p class="addr">富山県射水市海王町8</p>
-      </div>
+// ゲーム → とやま
+document.getElementById("toyama-button").addEventListener("click", () => {
+  showScreen("toyamaScreen");
+});
 
-      <div class="spot">
-        <h3>ファミリーパーク<br><span class="en">Family Park</span></h3>
-        <p class="addr">富山県富山市古沢277</p>
-      </div>
+// とやま → ゲームに戻る
+document.getElementById("back-to-game").addEventListener("click", () => {
+  showScreen("game-screen");
+});
 
-      <div class="spot">
-        <h3>岩瀬の町並み<br><span class="en">Iwase District</span></h3>
-        <p class="addr">富山県富山市岩瀬大町（岩瀬浜駅 徒歩3分、東岩瀬駅 徒歩10分</p>
-      </div>
+// ゲーム → 物語
+document.getElementById("story-button").addEventListener("click", () => {
+  showScreen("storyScreen");
+});
 
-      <div class="spot">
-        <h3>富山市民俗民芸村<br><span class="en">Folkcraft Village</span></h3>
-        <p class="addr">富山県富山市安養坊1118-1</p>
-      </div>
-
-      <div class="spot">
-        <h3>富山市科学博物館<br><span class="en">Toyama Science Museum</span></h3>
-        <p class="addr">富山県富山市西中野町1-8-31</p>
-      </div>
-
-      <div class="spot">
-        <h3>富山県美術館<br><span class="en">Toyama Prefectural Museum of Art</span></h3>
-        <p class="addr">富山県富山市木場町3-20</p>
-      </div>
-
-      <div class="spot">
-        <h3>富岩運河環水公園<br><span class="en">Fugan Canal Kansui Park</span></h3>
-        <p class="addr">富山県富山市湊入船町5</p>
-      </div>
-
-      <div class="spot">
-        <h3>池田屋安兵衛商店<br><span class="en">Ikedaya Yasubei Shop</span></h3>
-        <p class="addr">富山県富山市一番町1-5</p>
-      </div>
-
-      <div class="spot special" id="tateyamaMuseumBtn">
-        <h3>立山博物館（まんだら遊苑）<br><span class="en">Tateyama Museum Mandara Garden</span></h3>
-        <p class="addr">富山県中新川郡立山町芦峅寺</p>
-      </div>
-
-      <div class="spot special" id="cityHallBtn">
-        <h3>富山市役所展望塔<br><span class="en">Toyama City Hall Observatory</span></h3>
-        <p class="addr">富山県富山市新桜町7-38</p>
-      </div>
-    </div>
-
-    <div class="toyama-back">
-      <button class="nav-btn" id="backFromToyama">メインにもどる</button>
-    </div>
-  </div>
-</div>
-
-<!-- 立山博物館 詳細画面 -->
-<div id="tateyamaDetailScreen" class="hidden">
-  <div class="screen-inner">
-    <h1 class="detail-title">まんだら遊苑</h1>
-    <p class="detail-text">
-      立山に伝わる立山曼荼羅の世界を五感で体験できる施設。
-    </p>
-
-    <h2 class="detail-sub">4つのエリア</h2>
-    <ul class="detail-list">
-      <li><strong>地界</strong>：立山の地獄に見立てた世界</li>
-      <li><strong>天界</strong>：立山の浄土を表す理想郷</li>
-      <li><strong>陽の道</strong>：立山開山伝説や禅定登拝道をイメージ</li>
-      <li><strong>闇の道</strong>：現世への再生の道</li>
-    </ul>
-
-    <p class="detail-text">
-      ※ 冬季休苑：12月初〜3月末
-    </p>
-
-    <div class="back-title">
-      <button id="backFromTateyama" class="nav-btn">とやまにもどる</button>
-    </div>
-  </div>
-</div>
-
-<!-- 富山市役所展望塔 詳細画面 -->
-<div id="cityHallDetailScreen" class="hidden">
-  <div class="screen-inner">
-    <h1 class="detail-title">富山市役所展望塔</h1>
-    <p class="detail-text">Toyama City Hall Observatory</p>
-
-    <h2 class="detail-sub">開館時間</h2>
-    <ul class="detail-list">
-      <li><strong>平日：</strong> 9:00 〜 18:00</li>
-      <li><strong>土日・祝日：</strong> 10:00 〜 18:00</li>
-    </ul>
-
-    <h2 class="detail-sub">休館日</h2>
-    <p class="detail-text">年末年始：12月29日 〜 1月3日</p>
-
-    <h2 class="detail-sub">観覧料</h2>
-    <p class="detail-text">無料</p>
-
-    <div class="back-title">
-      <button id="backFromCityHall" class="nav-btn">とやまにもどる</button>
-    </div>
-  </div>
-</div>
-<div id="amaharashiDetailScreen" class="hidden">
-  <div class="screen-inner">
-    <h1 class="detail-title">雨晴海岸</h1>
-    <p class="detail-text">女岩と立山連峰が見える海岸。</p>
-
-    <div class="back-title">
-      <button id="backFromAmaharashi" class="nav-btn">とやまにもどる</button>
-    </div>
-  </div>
-</div>
+// 物語 → ゲーム
+document.getElementById("story-back").addEventListener("click", () => {
+  showScreen("game-screen");
+});
 </script>
+
 function showScreen(id){
   const screens = [
     "title-screen",
