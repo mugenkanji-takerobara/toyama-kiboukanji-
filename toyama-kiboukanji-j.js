@@ -248,7 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (index >= storyPages.length) index = storyPages.length - 1;
 
         currentStoryPage = index;
-
+　　   // ★★★ 三線BGMを制御する行（ここが最重要） ★★★
+    updateStoryBGM(index);
         document.getElementById("story-title").textContent = storyPages[index].title;
         document.getElementById("story-text").textContent = storyPages[index].text;
     }
