@@ -1178,9 +1178,6 @@ function triggerBonus(ch){
   bonusMode = ch;
   playBonusBGM();
 
-  if(ch==="塩"){
-    bonusRemaining = 3;
-  }
   else if(ch==="代"){
     bonusRemaining = 3;
   }
