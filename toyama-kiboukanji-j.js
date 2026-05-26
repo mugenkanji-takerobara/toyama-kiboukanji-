@@ -1799,3 +1799,159 @@ function fadeOut(audio) {
     }
   }, 150);
 }
+// ===============================
+// 説明書（manualOverlay）ページ送り
+// ===============================
+
+// スライド一覧を取得
+const manualSlides = document.querySelectorAll('#manualOverlay .slide-9-16');
+let manualIndex = 0; // 現在のページ番号（0スタート）
+
+// ページ番号表示
+const manualPageNum = document.getElementById('manualPageNum');
+
+// Prev / Next ボタン
+const manualPrev = document.getElementById('manualPrev');
+const manualNext = document.getElementById('manualNext');
+
+// 閉じるボタン
+const manualClose = document.querySelector('.manual-close');
+
+// manualOverlay 本体
+const manualOverlay = document.getElementById('manualOverlay');
+
+
+// -------------------------------
+// スライドを表示する関数
+// -------------------------------
+function showManualSlide(index) {
+  // 範囲チェック
+  if (index < 0) index = 0;
+  if (index >= manualSlides.length) index = manualSlides.length - 1;
+
+  manualIndex = index;
+
+  // 全スライドを非表示
+  manualSlides.forEach(slide => {
+    slide.style.display = 'none';
+  });
+
+  // 現在のスライドだけ表示
+  manualSlides[manualIndex].style.display = 'block';
+
+  // ページ番号更新（例：1 / 10）
+  manualPageNum.textContent = `${manualIndex + 1} / ${manualSlides.length}`;
+}
+
+
+// -------------------------------
+// Prev / Next ボタン動作
+// -------------------------------
+manualPrev.addEventListener('click', () => {
+  if (manualIndex > 0) {
+    showManualSlide(manualIndex - 1);
+  }
+});
+
+manualNext.addEventListener('click', () => {
+  if (manualIndex < manualSlides.length - 1) {
+    showManualSlide(manualIndex + 1);
+  }
+});
+
+
+// -------------------------------
+// 閉じるボタン
+// -------------------------------
+manualClose.addEventListener('click', () => {
+  manualOverlay.classList.add('hidden');
+});
+
+
+// -------------------------------
+// 「操作方法」ボタンで説明書を開く
+// -------------------------------
+document.getElementById('manualBtn').addEventListener('click', () => {
+  manualOverlay.classList.remove('hidden');
+  showManualSlide(0); // 最初のページから開始
+});
+
+
+// -------------------------------
+// 初期化（最初は全部非表示）
+// -------------------------------
+showManualSlide(0);
+
+// ===============================
+// 説明書（manualOverlay）ページ送り
+// ===============================
+
+const manualSlides = document.querySelectorAll('#manualOverlay .slide-9-16');
+let manualIndex = 0;
+
+const manualPageNum = document.getElementById('manualPageNum');
+const manualPrev = document.getElementById('manualPrev');
+const manualNext = document.getElementById('manualNext');
+const manualClose = document.querySelector('.manual-close');
+const manualOverlay = document.getElementById('manualOverlay');
+
+function showManualSlide(index) {
+  if (index < 0) index = 0;
+  if (index >= manualSlides.length) index = manualSlides.length - 1;
+
+  manualIndex = index;
+
+  manualSlides.forEach(slide => {
+    slide.style.display = 'none';
+  });
+
+  manualSlides[manualIndex].style.display = 'block';
+  manualPageNum.textContent = `${manualIndex + 1} / ${manualSlides.length}`;
+}
+
+manualPrev.addEventListener('click', () => {
+  if (manualIndex > 0) showManualSlide(manualIndex - 1);
+});
+
+manualNext.addEventListener('click', () => {
+  if (manualIndex < manualSlides.length - 1) showManualSlide(manualIndex + 1);
+});
+
+manualClose.addEventListener('click', () => {
+  manualOverlay.classList.add('hidden');
+});
+
+document.getElementById('manualBtn').addEventListener('click', () => {
+  manualOverlay.classList.remove('hidden');
+  showManualSlide(0);
+});
+
+// ===============================
+// スワイプ操作（スマホ用）
+// ===============================
+let touchStartX = 0;
+let touchEndX = 0;
+
+manualOverlay.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+manualOverlay.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = touchEndX - touchStartX;
+
+  if (diff > 50) {
+    if (manualIndex > 0) showManualSlide(manualIndex - 1);
+  }
+
+  if (diff < -50) {
+    if (manualIndex < manualSlides.length - 1) showManualSlide(manualIndex + 1);
+  }
+}
+
+// 初期化
+showManualSlide(0);
