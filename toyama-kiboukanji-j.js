@@ -124,14 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameInterval = null;
     let timerInterval = null;
 
-    // 漢字データ
-    const kanjiList = [
-        "山", "川", "海", "風", "空", "星", "光", "道",
-        "森", "林", "花", "雪", "雨", "雷", "雲", "鳥",
-        "魚", "虫", "草", "竹", "石", "火", "水", "土"
-    ];
-
-    // 落ちてくる漢字
+       // 落ちてくる漢字
     let fallingKanji = [];
 
     function createKanji() {
