@@ -1693,3 +1693,47 @@ in the heart of every traveler
 Fin`,
   },
 ];
+// ─────────────────────────────
+// 物語モード：三線BGM（静寂・ポツ…ポツ…）
+// ─────────────────────────────
+
+let storyBGM = new Audio("audio/sanshin_intro.mp3");
+storyBGM.loop = true;
+storyBGM.volume = 0;
+
+// ページ番号に応じてBGMを制御
+function updateStoryBGM(pageIndex) {
+  if (pageIndex <= 5) {
+    fadeIn(storyBGM);
+  } else {
+    fadeOut(storyBGM);
+  }
+}
+
+// フェードイン（ゆっくり・静かに）
+function fadeIn(audio) {
+  let v = audio.volume;
+  audio.play();
+  let fade = setInterval(() => {
+    if (v < 0.22) {   // ほぼ無音に近い最適値
+      v += 0.01;
+      audio.volume = v;
+    } else {
+      clearInterval(fade);
+    }
+  }, 150);
+}
+
+// フェードアウト（静かに消える）
+function fadeOut(audio) {
+  let v = audio.volume;
+  let fade = setInterval(() => {
+    if (v > 0) {
+      v -= 0.01;
+      audio.volume = v;
+    } else {
+      audio.pause();
+      clearInterval(fade);
+    }
+  }, 150);
+}
