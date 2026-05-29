@@ -356,10 +356,21 @@ console.log("start-button:", document.getElementById("start-button"));
 // ===== 物語モードの音 =====
 const waveBgm = new Audio("audio/穏やかな波.mp3");
 waveBgm.loop = true;
-waveBgm.volume = 0.12;
+waveBgm.volume = 0.02;
 
 const shamisenIntro = new Audio("audio/shamisen_intro.mp3");
-shamisenIntro.volume = 0.17;
+shamisenIntro.volume = 0.03;
+
+// 三味線は17秒だけ鳴らす
+function playShamisenOnce() {
+  shamisenIntro.currentTime = 0;
+  shamisenIntro.play();
+
+  setTimeout(() => {
+    shamisenIntro.pause();
+    shamisenIntro.currentTime = 0;
+  }, 17000); // 17秒
+}
 
 // 物語に入る
 function enterStory() {
@@ -368,8 +379,7 @@ function enterStory() {
     waveBgm.play();
   }
 
-  shamisenIntro.currentTime = 0;
-  shamisenIntro.play();
+  playShamisenOnce(); // ← 17秒だけ鳴らす
 
   show("storyScreen");
 }
@@ -385,7 +395,7 @@ function leaveStory() {
   show("game-screen");
 }
 
-// ボタンに紐づけ
+// ボタンに紐づけ（1つだけ）
 document.getElementById("story-button").onclick = enterStory;
 document.getElementById("story-back").onclick = leaveStory;
 
