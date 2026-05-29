@@ -361,7 +361,7 @@ waveBgm.volume = 0.02;
 const shamisenIntro = new Audio("audio/shamisen_intro.mp3");
 shamisenIntro.volume = 0.03;
 
-// 三味線は17秒だけ鳴らす
+// 三味線は18秒だけ鳴らす
 function playShamisenOnce() {
   shamisenIntro.currentTime = 0;
   shamisenIntro.play();
@@ -369,9 +369,8 @@ function playShamisenOnce() {
   setTimeout(() => {
     shamisenIntro.pause();
     shamisenIntro.currentTime = 0;
-  }, 17000); // 17秒
+  }, 18000); // 18秒
 }
-
 // 物語に入る
 function enterStory() {
   if (waveBgm.paused) {
