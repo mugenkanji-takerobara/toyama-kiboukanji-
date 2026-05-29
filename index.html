@@ -405,6 +405,16 @@ function leaveStory() {
 document.getElementById("story-button").onclick = enterStory;
 document.getElementById("story-back").onclick = leaveStory;
 
+document.getElementById("lang-ja").onclick = () => {
+  document.querySelectorAll(".story-ja").forEach(e => e.style.display = "block");
+  document.querySelectorAll(".story-en").forEach(e => e.style.display = "none");
+};
+
+document.getElementById("lang-en").onclick = () => {
+  document.querySelectorAll(".story-ja").forEach(e => e.style.display = "none");
+  document.querySelectorAll(".story-en").forEach(e => e.style.display = "block");
+};
+
 </script>
 
 <!-- ★外部JSは script の外に置く★ -->
