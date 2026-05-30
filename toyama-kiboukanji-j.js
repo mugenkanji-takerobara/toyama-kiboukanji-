@@ -3,11 +3,11 @@
 // ─────────────────────────────
 let waveBGM = new Audio("audio/穏やかな波.mp3");
 waveBGM.loop = true;
-waveBGM.volume = 0.03;  // 静かで世界観に合う最適値
+waveBGM.volume = 0.01;  // 静かで世界観に合う最適値
 
 let storyBGM = new Audio("audio/shamisen_intro.mp3");
 storyBGM.loop = true;
-storyBGM.volume = 0.03;
+storyBGM.volume = 0.02;
 
 function updateStoryBGM(pageIndex) {
     if (pageIndex <= 5) {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bgm = document.getElementById("bgm");
     function playBGM() {
         if (bgm.paused) {
-            bgm.volume = 0.03;
+            bgm.volume = 0.01;
             bgm.play().catch(() => {});
         }
     }
@@ -375,10 +375,10 @@ document.getElementById("story-back").addEventListener("click", () => {
 // ===== 物語モード用オーディオ =====
 const waveBgm = new Audio("穏やかな波.mp3");
 waveBgm.loop = true;
-waveBgm.volume = 0.03;
+waveBgm.volume = 0.01;
 
 const shamisenIntro = new Audio("shamisen_intro.mp3");
-shamisenIntro.volume = 0.03;
+shamisenIntro.volume = 0.02;
 
 // 物語画面を開いたとき
 function enterStory() {
