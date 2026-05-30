@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 　　function playShamisenTimed() {
   shamisenIntro.currentTime = 0;
-  shamisenIntro.volume = 0.006;  // かなり小さめ
+  shamisenIntro.volume = 0.003;  // かなり小さめ
   shamisenIntro.play().catch(()=>{});
 
-  setTimeout(() => { shamisenIntro.volume = 0.004; }, 15000);
-  setTimeout(() => { shamisenIntro.volume = 0.002; }, 18000);
+  setTimeout(() => { shamisenIntro.volume = 0.002; }, 15000);
+  setTimeout(() => { shamisenIntro.volume = 0.001; }, 18000);
   setTimeout(() => {
     shamisenIntro.pause();
     shamisenIntro.currentTime = 0;
