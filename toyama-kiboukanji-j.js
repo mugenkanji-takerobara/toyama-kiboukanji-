@@ -71,17 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showScreen("game-screen");
         startGame();
     });
-
-   document.getElementById("story-button").addEventListener("click", () => {
-    playBGM();
-    showScreen("story-screen");
-
-    // 波の音（常時）
-    waveBGM.play().catch(()=>{});
-
-    // 三味線（1〜20秒の時間制御）
-    playShamisenTimed();
-});
       // ★ 波の音を再生（常時）
     waveBGM.play().catch(()=>{});
     });
