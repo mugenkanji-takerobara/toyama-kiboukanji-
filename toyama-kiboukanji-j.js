@@ -358,11 +358,6 @@ document.getElementById("back-to-game").addEventListener("click", () => {
   showScreen("game-screen");
 });
 
-// ゲーム → 物語
-document.getElementById("story-button").addEventListener("click", () => {
-  showScreen("storyScreen");
-});
-
 // 物語 → ゲーム
 document.getElementById("story-back").addEventListener("click", () => {
   showScreen("game-screen");
