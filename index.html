@@ -70,22 +70,40 @@ button {
   pointer-events: auto;
 }
 
+/* 画面全体：黒背景＋中央寄せレイアウト */
 #story-screen {
-  background: #000000;   /* ← 完全な黒背景 */
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 24px;
+}
+.story-img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 6px;
 }
 .story-text {
   text-align: center;
-  font-size: 1.1rem;     /* ← さらに小さくして画像を邪魔しない */
+  font-size: 0.95rem;
   line-height: 1.7;
-  margin: 12px auto;
-  width: 90%;
-
-  color: #ffffff;        /* 白文字 */
+  margin: 6px auto 4px;
+  width: 92%;
+  color: #ffffff;
   font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
   letter-spacing: 0.02em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
 
-  /* 画像の上でも読みやすい軽い影 */
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.55);
+/* 物語コンテンツの幅をスマホ向けに制限 */
+.story-page {
+  width: 92%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 </style>
