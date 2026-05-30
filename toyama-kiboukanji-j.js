@@ -71,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
         showScreen("game-screen");
         startGame();
     });
- 　　function playShamisenTimed() {
+function playShamisenTimed() {
   shamisenIntro.currentTime = 0;
-  shamisenIntro.volume = 0.003;  // かなり小さめ
+  shamisenIntro.volume = 0.003;
   shamisenIntro.play().catch(()=>{});
 
   setTimeout(() => { shamisenIntro.volume = 0.002; }, 15000);
@@ -86,18 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("story-button").addEventListener("click", () => {
   showScreen("story-screen");
-  // ここで最初のページ表示（今の仕組みのままでOK）
   waveBGM.play().catch(()=>{});
   playShamisenTimed();
 });
-　
 
-    document.getElementById("manual-button").addEventListener("click", () => {
-        playBGM();
-        showScreen("manual-screen");
-        loadManualPage(0);
-    });
-
+document.getElementById("manual-button").addEventListener("click", () => {
+  playBGM();
+  showScreen("manual-screen");
+  loadManualPage(0);
+});
     // ストーリー・説明書ページ管理
     let currentStoryPage = 0;
     let currentManualPage = 0;
