@@ -60,6 +60,7 @@ function showScreen(id) {
             bgm.play().catch(() => {});
         }
     }
+    }); 
 
     // ======== ボタン ========
     document.getElementById("start-button").addEventListener("click", () => {
