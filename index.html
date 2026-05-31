@@ -142,6 +142,32 @@ button {
   z-index: 0;
 }
 .screen.active { z-index: 2; }
+/* 見出し装飾（既出） */
+.group-heading { position:relative; font-size:1.15rem; font-weight:900; color:#fff; padding:14px 18px; margin:18px 0 8px; border-radius:12px; background:linear-gradient(90deg, rgba(255,215,120,0.06), rgba(255,255,255,0.02)); letter-spacing:0.06em; text-shadow:0 2px 8px rgba(0,0,0,0.6); display:flex; align-items:center; gap:12px; }
+.group-heading small { display:block; font-size:0.72rem; opacity:0.85; margin-left:6px; color:#f6f0e6; }
+
+/* spot card */
+.spot { background: rgba(0,0,0,0.55); border-radius:12px; padding:12px; margin:12px 0; }
+.spot h3 { font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:6px; }
+.spot .addr { font-size:0.95rem; color:#e8e8e8; opacity:0.95; }
+.spot-img { width:100%; border-radius:10px; margin:8px 0; display:block; object-fit:cover; }
+
+/* detail */
+.detail-gallery { width:100%; max-width:520px; margin:0 auto 18px; }
+.detail-img { width:100%; border-radius:14px; margin-bottom:12px; display:block; object-fit:cover; }
+.detail-title { font-size:1.6rem; font-weight:900; letter-spacing:0.02em; color:#fff; margin-bottom:8px; }
+.detail-text { font-size:1.08rem; line-height:1.8; color:#f3efe8; }
+
+/* transient controls */
+.controls { position: fixed; top: 18px; right: 18px; display:flex; gap:8px; z-index:9999; opacity:0; pointer-events:none; transition:opacity .28s ease; }
+.controls.visible { opacity:1; pointer-events:auto; }
+.ctrl-btn { background: linear-gradient(180deg,#ffd86b,#d4a017); color:#3b2300; border:2px solid #b88710; padding:8px 12px; border-radius:10px; font-weight:800; box-shadow:0 4px 0 #b38b2e; }
+
+/* small screens tweak */
+@media (max-width:420px){
+  .detail-title { font-size:1.3rem; }
+  .spot h3 { font-size:1.05rem; }
+}
 
 </style>
 </head>
