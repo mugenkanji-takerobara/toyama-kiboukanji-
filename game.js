@@ -53,15 +53,14 @@ function showScreen(id) {
 // ★ showScreen は削除（toyama-kiboukanji-j.js のものを使う）
 
     // BGM
-    const bgm = document.getElementById("bgm");
+const bgm = document.getElementById("bgm");
     function playBGM() {
         if (bgm.paused) {
             bgm.volume = 0.01;
             bgm.play().catch(() => {});
         }
     }
-    }); 
-
+});  
     // ======== ボタン ========
     document.getElementById("start-button").addEventListener("click", () => {
         playBGM();
