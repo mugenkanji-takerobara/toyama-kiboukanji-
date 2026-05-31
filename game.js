@@ -1,7 +1,5 @@
-const kanjiList = ["日","月","山","川","木","金","土","空","海","風"];
-
 console.log("game.js loaded");
-
+const kanjiList = ["日","月","山","川","木","金","土","空","海","風"];
 // ======== BGM フェード処理 ========
 function updateStoryBGM(pageIndex) {
     if (pageIndex <= 5) {
