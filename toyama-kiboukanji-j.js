@@ -351,6 +351,82 @@ document.getElementById("back-to-game").addEventListener("click", () => {
 document.getElementById("story-back").addEventListener("click", () => {
   showScreen("game-screen");
 });
+// --- 言語切替（data-en を使う） ---
+const langToggle = document.getElementById('langToggle');
+let currentLang = 'jp';
+function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    if(lang === 'en'){
+      if(!el.dataset.jp) el.dataset.jp = el.textContent;
+      el.textContent = el.dataset.en;
+    } else {
+      if(el.dataset.jp) el.textContent = el.dataset.jp;
+    }
+  });
+  currentLang = lang;
+  if(langToggle) langToggle.textContent = (lang === 'en') ? 'JP' : 'EN';
+}
+langToggle?.addEventListener('click', ()=> setLang(currentLang === 'jp' ? 'en' : 'jp'));
+
+// --- transient controls: 正しく時間で表示/非表示 ---
+const transient = document.getElementById('transientControls');
+let transientTimer = null;
+function showTransient(ms=4000){
+  if(!transient) return;
+  // ゲームプレイ中は表示しない（#game-screen が active のとき）
+  const gameActive = document.getElementById('game-screen')?.classList.contains('active');
+  if(gameActive) return;
+  transient.classList.add('visible');
+  clearTimeout(transientTimer);
+  transientTimer = setTimeout(()=> transient.classList.remove('visible'), ms);
+}
+// 初回と定期表示
+setTimeout(()=> showTransient(5000), 2000);
+setInterval(()=> showTransient(4000 + Math.floor(Math.random()*3000)), 30000);
+
+// ユーザー操作で即表示（短時間）
+['click','touchstart','mousemove'].forEach(ev=>{
+  window.addEventListener(ev, ()=> showTransient(5000), {passive:true});
+});
+
+// global back: タイトルへ（ゲーム中は無効）
+document.getElementById('globalBack')?.addEventListener('click', ()=>{
+  const gameActive = document.getElementById('game-screen')?.classList.contains('active');
+  if(gameActive) return; // ゲーム中は無効
+  if(typeof showScreen === 'function') showScreen('title-screen');
+  else {
+    document.querySelectorAll('.screen').forEach(s=> s.classList.remove('active'));
+    document.getElementById('title-screen')?.classList.add('active');
+  }
+});
+
+// --- 一覧 → 詳細（A方式） ---
+const toyamaScreen = document.getElementById('toyamaScreen');
+const iwaseDetail = document.getElementById('iwaseDetailScreen');
+const yaoDetail = document.getElementById('yaoDetailScreen');
+const sciDetail = document.getElementById('sciDetailScreen');
+const toyamajoDetail = document.getElementById('toyamajoDetailScreen');
+const mirageDetail = document.getElementById('mirageDetailScreen');
+
+// open detail
+document.getElementById('iwaseSpotBtn')?.addEventListener('click', ()=> { toyamaScreen.classList.add('hidden'); iwaseDetail.classList.remove('hidden'); showTransient(3500); });
+document.getElementById('yaoSpotBtn')?.addEventListener('click', ()=> { toyamaScreen.classList.add('hidden'); yaoDetail.classList.remove('hidden'); showTransient(3500); });
+document.getElementById('sciSpotBtn')?.addEventListener('click', ()=> { toyamaScreen.classList.add('hidden'); sciDetail.classList.remove('hidden'); showTransient(3500); });
+document.getElementById('toyamajoSpotBtn')?.addEventListener('click', ()=> { toyamaScreen.classList.add('hidden'); toyamajoDetail.classList.remove('hidden'); showTransient(3500); });
+document.getElementById('mirageSpotBtn')?.addEventListener('click', ()=> { toyamaScreen.classList.add('hidden'); mirageDetail.classList.remove('hidden'); showTransient(3500); });
+
+// back buttons
+document.getElementById('backFromIwase')?.addEventListener('click', ()=> { iwaseDetail.classList.add('hidden'); toyamaScreen.classList.remove('hidden'); showTransient(3000); });
+document.getElementById('backFromYao')?.addEventListener('click', ()=> { yaoDetail.classList.add('hidden'); toyamaScreen.classList.remove('hidden'); showTransient(3000); });
+document.getElementById('backFromSci')?.addEventListener('click', ()=> { sciDetail.classList.add('hidden'); toyamaScreen.classList.remove('hidden'); showTransient(3000); });
+document.getElementById('backFromToyamajo')?.addEventListener('click', ()=> { toyamajoDetail.classList.add('hidden'); toyamaScreen.classList.remove('hidden'); showTransient(3000); });
+document.getElementById('backFromMirage')?.addEventListener('click', ()=> { mirageDetail.classList.add('hidden'); toyamaScreen.classList.remove('hidden'); showTransient(3000); });
+
+// rainharashi: 物語モードへ遷移（既存仕様）
+document.getElementById('amaharashiSpot')?.addEventListener('click', ()=> {
+  if(typeof showScreen === 'function') showScreen('storyScreen');
+});
+
 </script>
 // ===== 物語モード用オーディオ =====
 waveBgm.volume = 0.01;
