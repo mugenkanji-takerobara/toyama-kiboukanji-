@@ -39,17 +39,11 @@ function fadeOut(audio) {
 document.addEventListener("DOMContentLoaded", () => {
     console.log("JS Loaded");
 
-    // 画面管理
-    const screens = document.querySelectorAll(".screen");
-    function showScreen(id) {
-        screens.forEach(s => s.style.display = "none");
-        const target = document.getElementById(id);
-        if (target) target.style.display = "block";
-    }
-　　window.showScreen = showScreen;
-
     // 最初の画面
     showScreen("title-screen");
+// 画面管理
+const screens = document.querySelectorAll(".screen");
+// ★ showScreen は削除（toyama-kiboukanji-j.js のものを使う）
 
     // BGM
     const bgm = document.getElementById("bgm");
