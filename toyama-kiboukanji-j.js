@@ -47,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 画面管理
     const screens = document.querySelectorAll(".screen");
-    function showScreen(id) {
-        screens.forEach(s => s.style.display = "none");
-        const target = document.getElementById(id);
-        if (target) target.style.display = "block";
-    }
-
+  
+  　function showScreen(id) {
+    screens.forEach(s => s.classList.remove("active"));
+    const target = document.getElementById(id);
+    if (target) target.classList.add("active");
+}
     // 最初の画面
     showScreen("title-screen");
 
