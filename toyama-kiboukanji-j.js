@@ -426,6 +426,9 @@ document.getElementById('backFromMirage')?.addEventListener('click', ()=> { mira
 document.getElementById('amaharashiSpot')?.addEventListener('click', ()=> {
   if(typeof showScreen === 'function') showScreen('storyScreen');
 });
+document.getElementById('amaharashiStoryBtn')?.addEventListener('click', ()=>{
+  if(typeof showScreen === 'function') showScreen('storyScreen');
+});
 
 </script>
 // ===== 物語モード用オーディオ =====
